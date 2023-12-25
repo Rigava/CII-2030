@@ -38,9 +38,9 @@ def main():
     st.title("CII Value Predictor")
 
     # Get input from the user
-    deadweight = st.number_input("Enter Deadweight", min_value=1.0)
+    deadweight = st.number_input("Enter Deadweight", min_value=5000.0)
     utilization = st.number_input("Enter Utilization (%)", min_value=0.0, max_value=100.0, value=100.0)
-    distance = st.number_input("Enter Distance", min_value=500.0)
+    distance = st.number_input("Enter Distance", min_value=1.0)
     start_year = 2020
     end_year = 2030
 
