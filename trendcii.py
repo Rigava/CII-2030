@@ -11,23 +11,26 @@ def calculate_future_cii(deadweight,utilization,distance, start_year, end_year):
 
     data = {'Year': [], 'CII': [], 
             'Improved_CII': [], 'Payload': [],
-            'Transport_Work': [],'CO2Emission': [],'HFO_CONS':[]}
+            'Transport_Work': [],'CO2Emission': [],
+            'EEOI':[],'HFO_CONS':[]}
 
     for i, year in enumerate(years):
         cii = predict_cii(deadweight)
         reduction_factor = reduction_factors[i] / 100
         improved_cii = cii * (1 - reduction_factor)
         reference_payload = deadweight * utilization / 100
-        transportwork = distance * deadweight
-        emission =  transportwork * improved_cii / 10**6
+        transportwork_cii = distance * deadweight
+        emission =  transportwork_cii * improved_cii / 10**6
+        eeoi = improved_cii / (utilization/100)
         cons = emission / 3.114
         
         data['Year'].append(year)
         data['CII'].append(cii)
         data['Improved_CII'].append(improved_cii)
         data['Payload'].append(reference_payload)
-        data['Transport_Work'].append(transportwork)
+        data['Transport_Work'].append(transportwork_cii)
         data['CO2Emission'].append(emission)
+        data['EEOI'].append(eeoi)
         data['HFO_CONS'].append(cons)
         
 
@@ -40,7 +43,7 @@ def main():
     # Get input from the user
     deadweight = st.number_input("Enter Deadweight", min_value=5000.0)
     utilization = st.number_input("Enter Utilization (%)", min_value=0.0, max_value=100.0, value=100.0)
-    distance = st.number_input("Enter Distance", min_value=1.0)
+    distance = st.number_input("Enter Distance", min_value=500.0)
     start_year = 2020
     end_year = 2030
 
