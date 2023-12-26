@@ -55,7 +55,7 @@ def main():
     df = calculate_future_cii(deadweight,utilization,distance, start_year, end_year)
 
     # Display the DataFrame
-    # st.dataframe(df)
+    st.dataframe(df)
     hfo_reduction = df.loc[df['Year'] == 2020, 'HFO_CONS'].values[0] - df.loc[df['Year'] == 2030, 'HFO_CONS'].values[0]
     st.write(f"Reduction in HFO_CONS from 2020 to 2030: {hfo_reduction:.2f}")
 
