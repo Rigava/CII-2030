@@ -12,7 +12,7 @@ def calculate_future_cii(deadweight,utilization,distance, start_year, end_year):
     data = {'Year': [], 'CII': [], 
             'Improved_CII': [], 'Payload': [],
             'Transport_Work': [],'CO2Emission': [],
-            'EEOI':[],'HFO_CONS':[]}
+            'HFO_CONS':[]}
 
     for i, year in enumerate(years):
         cii = predict_cii(deadweight)
@@ -21,7 +21,6 @@ def calculate_future_cii(deadweight,utilization,distance, start_year, end_year):
         reference_payload = deadweight * utilization / 100
         transportwork_cii = distance * deadweight
         emission =  transportwork_cii * improved_cii / 10**6
-        eeoi = improved_cii / (utilization/100)
         cons = emission / 3.114
         
         data['Year'].append(year)
@@ -30,7 +29,6 @@ def calculate_future_cii(deadweight,utilization,distance, start_year, end_year):
         data['Payload'].append(reference_payload)
         data['Transport_Work'].append(transportwork_cii)
         data['CO2Emission'].append(emission)
-        data['EEOI'].append(eeoi)
         data['HFO_CONS'].append(cons)
         
 
