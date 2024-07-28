@@ -1,5 +1,5 @@
 plotly
 openpyxl
 duckdb
-pandas==1.5.3
+pandas
 pandasai
