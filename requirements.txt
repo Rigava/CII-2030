@@ -2,4 +2,4 @@ plotly
 openpyxl
 duckdb
 pandas
-pandasai
+pandasai==1.4.10
