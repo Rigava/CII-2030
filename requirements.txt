@@ -3,3 +3,4 @@ openpyxl
 duckdb
 pandas
 pandasai
+pyyaml
