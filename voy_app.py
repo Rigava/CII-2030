@@ -22,8 +22,7 @@ with st.expander(" ♻️ Disclaimer"):
          The data is based on historical vessel data which was publically available. The calculation is based on consumption of VLSFO fuel type by the historical voyages.
          Assumption used to calculate the EU penalty:  
          - GHG Intensity for VLSFO 91.7 gCO2eq/MJ
-         - 70 % of fuel consumption accounted for year 2025
-         - EU Allowance is fixed @ 70 Euros
+         - EU Allowance is fixed @ 70 Euros and 70 % of fuel consumption accounted for year 2025
          """, unsafe_allow_html=True)
 
 
