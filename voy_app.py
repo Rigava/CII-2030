@@ -49,10 +49,12 @@ df_selected = df_fil[df_fil["To Port Name"].isin(fil_ports)]
 df1 = df_selected.groupby('Vessel ID')[['Consumption (MT)','Sea Distance','Sea ME Hours']].sum()
 #Assuming all fuel type in HFO
 df1['emission_ttw'] = df1['Consumption (MT)'] * 3.125
+df1['emission_wtw'] = df1['Consumption (MT)'] * 3.7
 #Assuming 70 euro is the cost of EUA in 2026 and 70 % of fuel consumption accounted for
 df1['EU_ETS_cost'] = df1['emission_ttw'] * 70 *0.7
 #Assuming 50% of consumption is to be considered and .0402 MJ/gm
 df1['energy_used'] = (df1['Consumption (MT)'] *1000000 *0.0402) 
+df1['intensity']=df1['emission_ttw]
 #Assuming GHG intensity of 91.7 for HFO against the required value of 89.34(2% lower than GHG intensity of 2020 i.e. 91.16)
 df1['compliance_deficit'] = (89.34-91.7)*df1['energy_used']
 df1['EU_penalty']=(df1['compliance_deficit']*2400)/(91.7 * 41000)
