@@ -4,7 +4,7 @@ import io
 import streamlit as st
 
 st.set_page_config(page_title="Voyage Intensity Dashboard", page_icon=":ship:", layout="wide")
-st.title(" :bar_chart: FUEL EU Analytics Dashboard")
+st.title(" :bar_chart: Impact of EU regulation on Transportation cost")
 st.markdown("_Prototype v0.1.0_")
 st.write("""EU aims to reduce GHG emissions by minimum 55% by 2030 as compared to 1990 levels.
          To promote decarbonization of fuels used onboard ships, EU ETS was extended to shipping sector in 2024 and soon 
@@ -188,52 +188,52 @@ with top_left_column:
         plot_gauge(total_speed, "#29B09D", " knots", "Average Speed", 31)
 
 #GEN AI
-from pandasai import SmartDataframe
-from pandasai.llm import GooglePalm
-from pandasai.responses.response_parser import ResponseParser
-from pandasai.callbacks import BaseCallback
-class StreamlitCallback(BaseCallback):
-    def __init__(self, container) -> None:
-        """Initialize callback handler."""
-        self.container = container
+# from pandasai import SmartDataframe
+# from pandasai.llm import GooglePalm
+# from pandasai.responses.response_parser import ResponseParser
+# from pandasai.callbacks import BaseCallback
+# class StreamlitCallback(BaseCallback):
+#     def __init__(self, container) -> None:
+#         """Initialize callback handler."""
+#         self.container = container
 
-    def on_code(self, response: str):
-        self.container.code(response)
+#     def on_code(self, response: str):
+#         self.container.code(response)
 
-class StreamlitResponse(ResponseParser):
-    def __init__(self, context) -> None:
-        super().__init__(context)
+# class StreamlitResponse(ResponseParser):
+#     def __init__(self, context) -> None:
+#         super().__init__(context)
 
-    def format_dataframe(self, result):
-        st.dataframe(result["value"])
-        return
+#     def format_dataframe(self, result):
+#         st.dataframe(result["value"])
+#         return
 
-    def format_plot(self, result):
-        st.image(result["value"])
-        return
+#     def format_plot(self, result):
+#         st.image(result["value"])
+#         return
 
-    def format_other(self, result):
-        st.write(result["value"])
-        return
+#     def format_other(self, result):
+#         st.write(result["value"])
+#         return
 
-GOOGLE_API_KEY = st.secrets.API_KEY
-llm = GooglePalm(api_key=GOOGLE_API_KEY)
+# GOOGLE_API_KEY = st.secrets.API_KEY
+# llm = GooglePalm(api_key=GOOGLE_API_KEY)
 
-st.write("# :compass:  Chat with Vessel voyage data")
-with st.expander(":badminton_racquet_and_shuttlecock: Dataframe preview"):
-    st.write(df1.tail(5))
-if df is not None:
-    sdf = SmartDataframe(df1,config={"llm":llm,"response_parser":StreamlitResponse})
-    # st.dataframe(df1.tail(3))
-    st.write("Some sample questions- Describe the data, dtypes of variables, shape of the data, any missing value, are there any duplicate rows, plot the graph, group the data by and calculate average ")
-    prompt = st.text_area("Enter your query")
-    if st.button("Generate"):
-        if prompt:
-            with st.spinner("Generating response..."):
-                response = sdf.chat(prompt)
-                st.success(response)
+# st.write("# :compass:  Chat with Vessel voyage data")
+# with st.expander(":badminton_racquet_and_shuttlecock: Dataframe preview"):
+#     st.write(df1.tail(5))
+# if df is not None:
+#     sdf = SmartDataframe(df1,config={"llm":llm,"response_parser":StreamlitResponse})
+#     # st.dataframe(df1.tail(3))
+#     st.write("Some sample questions- Describe the data, dtypes of variables, shape of the data, any missing value, are there any duplicate rows, plot the graph, group the data by and calculate average ")
+#     prompt = st.text_area("Enter your query")
+#     if st.button("Generate"):
+#         if prompt:
+#             with st.spinner("Generating response..."):
+#                 response = sdf.chat(prompt)
+#                 st.success(response)
 
-                st.set_option('deprecation.showPyplotGlobalUse', False)
-                st.pyplot()
-        else:
-            st.warning("Please enter another query")
+#                 st.set_option('deprecation.showPyplotGlobalUse', False)
+#                 st.pyplot()
+#         else:
+#             st.warning("Please enter another query")
