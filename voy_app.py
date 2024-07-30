@@ -54,7 +54,7 @@ df1['emission_wtw'] = df1['Consumption (MT)'] * 3.7
 df1['EU_ETS_cost'] = df1['emission_ttw'] * 70 *0.7
 #Assuming 50% of consumption is to be considered and .0402 MJ/gm
 df1['energy_used'] = (df1['Consumption (MT)'] *1000000 *0.0402) 
-df1['intensity']=df1['emission_wtw]/df1['energy_used']
+df1['intensity'] = (df1['emission_wtw]*1000000) / df1['energy_used']
 #Assuming GHG intensity of 91.7 for HFO against the required value of 89.34(2% lower than GHG intensity of 2020 i.e. 91.16)
 df1['compliance_deficit'] = (89.34-91.7)*df1['energy_used']
 df1['EU_penalty']=(df1['compliance_deficit']*2400)/(91.7 * 41000)
