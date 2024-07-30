@@ -57,6 +57,7 @@ df1['energy_used'] = (df1['Consumption (MT)'] *1000000 *0.0402)
 df1['compliance_deficit'] = (89.34-91.7)*df1['energy_used']
 df1['EU_penalty']=(df1['compliance_deficit']*2400)/(91.7 * 41000)
 df1['total_penalty'] =df1['EU_ETS_cost']-df1['EU_penalty']
+df1['costPerNm'] = df1['total_penalty']/df1['Sea Distance']
 #Metrics
 # total_teu =df1['Actual Teu'].sum()
 total_distance = df1['Sea Distance'].sum()
