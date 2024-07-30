@@ -18,12 +18,12 @@ with st.expander(" ♻️ Insights"):
              padding-left: 40px;
          }
          </style>
-         The data is based on historical vessel data which was publically available. The calculation is based on consumption of VLSFO fuel type by the historical voyages.
-         Assumption used to calculate the EU penalty:  
+         The data is based on roughly 4400 historical voyage data which was publically available. The calculation is based on consumption of VLSFO fuel type only.
+         Assumptions used to calculate the EU penalty:  
          - GHG Intensity for VLSFO 91.7 gCO2eq/MJ
          - EU Allowance is fixed @ 70 Euros and 70 % of fuel consumption accounted for year 2025
          
-         A voyage from Rotterdam to Algeciras on an average will become expensive by 20 euros per nautical mile due to penalty on fossil fuel imposed by
+         A voyage from Rotterdam to Algeciras on anaverage will become expensive by 20 euros per nautical mile due to penalty on fossil fuel imposed by
          upcoming FUEL EU regulation.
          Overall Asia Europe services will attract a surcharge cost of 70 to 80 euros based on the final destination.
          """, unsafe_allow_html=True)
