@@ -171,7 +171,7 @@ with top_left_column:
             show_graph=True,
             color_graph="rgba(0, 104, 201, 0.2)",
         )
-        plot_gauge(eu_ets_pernm, "#0068C9", "per NM", "EU ETS per NM", 100)
+        plot_gauge(eu_ets_pernm, "#0068C9", "euros", "EU ETS per NM", 100)
 
     with column_2:
         plot_metric(
@@ -182,11 +182,11 @@ with top_left_column:
             show_graph=True,
             color_graph="rgba(255, 43, 43, 0.2)",
         )
-        plot_gauge(eu_penalty_pernm, "#FF8700", " euros per NM", "Fuel EU per NM", 50)
+        plot_gauge(eu_penalty_pernm, "#FF8700", " euros", "Fuel EU per NM", 50)
 
     with column_3:
         plot_metric("Distance", total_distance, prefix="", suffix=" NM", show_graph=False)
-        plot_gauge(total_eu_cost_pernm, "#FF2B2B", "euros per NM", "EU Penalty", 90)
+        plot_gauge(total_eu_cost_pernm, "#FF2B2B", "euros", "EU Penalty", 90)
         
     with column_4:
         plot_metric("Time", total_time, prefix="", suffix=" Hours", show_graph=False)
