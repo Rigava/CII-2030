@@ -10,7 +10,7 @@ st.write("""EU aims to reduce GHG emissions by minimum 55% by 2030 as compared t
          In this analysis we have explored the cost implication on shipper due to EU regulations.To promote decarbonization of fuels used onboard ships, 
          EU ETS was extended to shipping sector in 2024 and soon in 2025 FUEL EU Maritime will penalize the vessels if GHG intensity exceeds the 89.34 gCO2eq/MJ
          In general a voyage from Rotterdam to Algeciras on an average will become expensive by 20 euros per nautical mile due to penalty on fossil fuel imposed by
-         upcoming FUEL EU regulation (for more details visit- Link)
+         upcoming FUEL EU regulation (for more details visit- https://transport.ec.europa.eu/transport-modes/maritime/decarbonising-maritime-transport-fueleu-maritime/questions-and-answers-regulation-eu-20231805-use-renewable-and-low-carbon-fuels-maritime-transport_en)
          """)
 with st.expander(" ♻️ Disclaimer"):
          st.markdown("""
