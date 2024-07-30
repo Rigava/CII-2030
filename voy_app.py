@@ -7,19 +7,19 @@ st.set_page_config(page_title="Voyage Intensity Dashboard", page_icon=":ship:", 
 st.title(" :bar_chart: Impact of EU regulation on Transportation cost")
 st.markdown("_Prototype v0.1.0_")
 st.write("""EU aims to reduce GHG emissions by minimum 55% by 2030 as compared to 1990 levels.
-         In this analysis we have explored the cost implication due to purchase of EU regulations.To promote decarbonization of fuels used onboard ships, 
+         In this analysis we have explored the cost implication on shipper due to EU regulations.To promote decarbonization of fuels used onboard ships, 
          EU ETS was extended to shipping sector in 2024 and soon in 2025 FUEL EU Maritime will penalize the vessels if GHG intensity exceeds the 89.34 gCO2eq/MJ
-         In general a voyage from Rotterdam to Algeciras on ana average will become expensive by 20 euros per nautical mile due to penalty imposed due to upcoming 
-         FUEL EU regulation (for more details visit- Link)
+         In general a voyage from Rotterdam to Algeciras on an average will become expensive by 20 euros per nautical mile due to penalty on fossil fuel imposed by
+         upcoming FUEL EU regulation (for more details visit- Link)
          """)
 with st.expander(" ♻️ Disclaimer"):
     st.write(""" The data is based on historical vessel data which was publically available. The calculation is based on consumption
              of VLSFO fuel type by the historical voyages. Assumption used to calculate the EU penalty: 
-             1. GHG Intensity for HFO 91.7
+             - GHG Intensity for VLSFO 91.7 gCO2eq/MJ
              
-             2. 70 % of fuel consumption accounted for year 2025
+             - 70 % of fuel consumption accounted for year 2025
              
-             3. EUA @ 70 Euros
+             - EUA @ 70 Euros
              """)
 
 url = "https://raw.githubusercontent.com/Rigava/DataRepo/main/voyage_data.csv"
@@ -133,7 +133,7 @@ def plot_gauge(
             domain={"x": [0, 1], "y": [0, 1]},
             number={
                 "suffix": indicator_suffix,
-                "font.size": 20,
+                "font.size": 18,
             },
             gauge={
                 "axis": {"range": [0, max_bound], "tickwidth": 1},
