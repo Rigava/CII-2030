@@ -141,7 +141,7 @@ def plot_gauge(
             domain={"x": [0, 1], "y": [0, 1]},
             number={
                 "suffix": indicator_suffix,
-                "font.size": 15,
+                "font.size": 20,
             },
             gauge={
                 "axis": {"range": [0, max_bound], "tickwidth": 1},
@@ -149,7 +149,7 @@ def plot_gauge(
             },
             title={
                 "text": indicator_title,
-                "font": {"size": 20},
+                "font": {"size": 22},
             },
         )
     )
