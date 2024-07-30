@@ -38,7 +38,7 @@ df.columns = df.columns.str.strip()
 # st.write(df.columns)
 #Filtered Dataframe as per trade cluster
 df_fil = df[df["Trade Cluster"]=='EMA - Europe Middle East Asia']
-df_fil =    df_fil.drop(['Trade Cluster','Segment Size','Alongside (UTC)','ME Hrs BerthToBerth','Nominal TEU','Arrival Waiting Hours','Departure (UTC)'],'Actual Teu',axis=1)
+df_fil =    df_fil.drop(['Trade Cluster','Segment Size','Alongside (UTC)','ME Hrs BerthToBerth','Nominal TEU','Arrival Waiting Hours','Departure (UTC)'],axis=1)
 # Get a list of unique ports from the original DataFrame
 filter_toports = df_fil['To Port Name'].unique()
 # Create a multi-select widget to select arr ports
