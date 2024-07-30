@@ -72,7 +72,7 @@ print(eu_ets_pernm)
 
 with st.expander("🔍 Data Preview"):
     st.dataframe(
-        df_selected,
+        df1,
         column_config={"Actual Teu": st.column_config.NumberColumn(format="%d"),
                        "Vessel ID": st.column_config.NumberColumn(format="%d"),
                        "total_penalty": st.column_config.NumberColumn(format="%d")},
