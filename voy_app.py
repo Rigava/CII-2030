@@ -13,12 +13,20 @@ st.write("""EU aims to reduce GHG emissions by minimum 55% by 2030 as compared t
          upcoming FUEL EU regulation (for more details visit- Link)
          """)
 with st.expander(" ♻️ Disclaimer"):
-    st.markdown(""" The data is based on historical vessel data which was publically available. The calculation is based on consumption
-             of VLSFO fuel type by the historical voyages. Assumption used to calculate the EU penalty: 
-             - GHG Intensity for VLSFO 91.7 gCO2eq/MJ
-             - 70 % of fuel consumption accounted for year 2025
-             - EUA @ 70 Euros
-             """)
+         st.markdown("""
+         <style>
+         [data-testid="stMarkdownContainer"] ul {
+             padding-left: 40px;
+         }
+         </style>
+         The data is based on historical vessel data which was publically available. The calculation is based on consumption of VLSFO fuel type by the historical voyages.
+         Assumption used to calculate the EU penalty:  
+         - GHG Intensity for VLSFO 91.7 gCO2eq/MJ
+         - 70 % of fuel consumption accounted for year 2025
+         - EU Allowance is fixed @ 70 Euros
+         """, unsafe_allow_html=True)
+
+
 
 url = "https://raw.githubusercontent.com/Rigava/DataRepo/main/voyage_data.csv"
 download = requests.get(url).content
