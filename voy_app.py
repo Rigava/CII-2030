@@ -10,10 +10,12 @@ st.write("""EU aims to reduce GHG emissions by minimum 55% by 2030 as compared t
          To promote decarbonization of fuels used onboard ships, EU ETS was extended to shipping sector in 2024 and soon 
          in 2025 FUEL EU Maritime will penalize the vessels if GHG intensity exceeds the 89.34 gCO2eq/MJ.""")
 with st.expander(" ♻️ Disclaimer"):
-    st.write(""" The data is based on historical vessel data which was publically available. The consumption assumes conversion
-             of fuel to VLSFO. Assumption used to calculate the EU penalty: 
-             1. GHG Intensity for HFO 91.7 
+    st.write(""" The data is based on historical vessel data which was publically available. The conversion assumes consumption
+             of fuel to HFO. Assumption used to calculate the EU penalty: 
+             1. GHG Intensity for HFO 91.7
+             
              2. 70 % of fuel consumption accounted for year 2025
+             
              3. EUA @ 70 Euros
              """)
 
@@ -38,7 +40,7 @@ df1['emission_ttw'] = df1['Consumption (MT)'] * 3.125
 #Assuming 70 euro is the cost of EUA in 2026 and 70 % of fuel consumption accounted for
 df1['EU_ETS_cost'] = df1['emission_ttw'] * 70 *0.7
 #Assuming 50% of consumption is to be considered and .0402 MJ/gm
-df1['energy_used'] = (df1['Consumption (MT)'] *1000000 *0.0402) /2 
+df1['energy_used'] = (df1['Consumption (MT)'] *1000000 *0.0402) 
 #Assuming GHG intensity of 91.7 for HFO against the required value of 89.34(2% lower than GHG intensity of 2020 i.e. 91.16)
 df1['compliance_deficit'] = (89.34-91.7)*df1['energy_used']
 df1['EU_penalty']=(df1['compliance_deficit']*2400)/(91.7 * 41000)
