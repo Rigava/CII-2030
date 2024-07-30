@@ -42,7 +42,8 @@ df_fil =    df_fil.drop(['Trade Cluster','Segment Size','Alongside (UTC)','ME Hr
 # Get a list of unique ports from the original DataFrame
 filter_toports = df_fil['To Port Name'].unique()
 # Create a multi-select widget to select arr ports
-fil_ports = st.sidebar.multiselect('Choose the arrival ports',filter_toports,default= "ALGECIRAS")
+filter_Euroports = ["ALGECIRAS","BREMERHAVEN","ANTWERP","ROTTERDAM","HAMBURG","GDANSK","GOTHENBURG","WILHELMSHAVEN","London Gateway"]
+fil_ports = st.sidebar.multiselect('Choose the arrival ports',filter_Euroports,default= "ALGECIRAS")
 #Transformation of data fram filtered by arrival ports
 df_selected = df_fil[df_fil["To Port Name"].isin(fil_ports)]
 df1 = df_selected.groupby('Vessel ID')[['Consumption (MT)','Sea Distance','Sea ME Hours']].sum()
