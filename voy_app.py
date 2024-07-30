@@ -174,7 +174,7 @@ with top_left_column:
         plot_metric(
             "EU ETS cost",
             eu_ets,
-            prefix="$",
+            prefix="€",
             suffix="",
             show_graph=True,
             color_graph="rgba(0, 104, 201, 0.2)",
@@ -185,7 +185,7 @@ with top_left_column:
         plot_metric(
             "Fuel EU Penalty",
             eu_penalty,
-            prefix="$",
+            prefix="€",
             suffix="",
             show_graph=True,
             color_graph="rgba(255, 43, 43, 0.2)",
