@@ -26,6 +26,19 @@ with st.expander(" ♻️ Insights"):
          A voyage from Rotterdam to Algeciras on anaverage will become expensive by 20 euros per nautical mile due to penalty on fossil fuel imposed by
          upcoming FUEL EU regulation.
          Overall Asia Europe services will attract a surcharge cost of 70 to 80 euros based on the final destination.
+         Following metrics are used in the analysis:
+         Consumption (MT): The total amount of fuel consumed by the vessel in metric tons.
+         Sea Distance: The total distance traveled by the vessel in nautical miles.
+         Sea ME Hours: The total number of hours spent at sea.
+         Emission TTW: The total amount of CO2 emitted by the vessel in tonnes of CO2 per ton of fuel.
+         Emission WTW: The total amount of CO2 emitted by the vessel in tonnes of CO2 per ton of fuel, including the emissions from the production of the fuel.
+         EU ETS Cost: The cost of the EU ETS allowances for the vessel, calculated as the product of the emission TTW and the cost of an EU ETS allowance.
+         Energy Used: The total amount of energy used by the vessel in megajoules.
+         Intensity: The GHG intensity of the vessel, calculated as the emission WTW divided by the energy used.
+         Compliance Deficit: The difference between the required GHG intensity and the actual GHG intensity of the vessel.
+         EU Penalty: The penalty for the vessel's compliance deficit, calculated as the product of the compliance deficit and the penalty rate.
+         Total Penalty: The total cost of the EU ETS allowances and the penalty for the vessel.
+         Cost Per Nm: The cost of the EU ETS allowances and the penalty per nautical mile.
          """, unsafe_allow_html=True)
 
 
