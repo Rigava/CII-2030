@@ -11,7 +11,7 @@ st.write("""EU aims to reduce GHG emissions by minimum 55% by 2030 as compared t
          EU ETS was extended to shipping sector in 2024 and soon in 2025 FUEL EU Maritime will penalize the vessels if GHG intensity exceeds the 89.34 gCO2eq/MJ
          For more details on the FUEL EU you can read this amazing FAQ documnet here- https://transport.ec.europa.eu/transport-modes/maritime/decarbonising-maritime-transport-fueleu-maritime/questions-and-answers-regulation-eu-20231805-use-renewable-and-low-carbon-fuels-maritime-transport_en)
          """)
-with st.expander(" ♻️ Insights"):
+with st.expander(" ♻️ Methodology"):
          st.markdown("""
          <style>
          [data-testid="stMarkdownContainer"] ul {
@@ -19,17 +19,11 @@ with st.expander(" ♻️ Insights"):
          }
          </style>
          The data is based on roughly 4400 historical voyage data which was publically available. The calculation is based on consumption of VLSFO fuel type only.
-         Assumptions used to calculate the EU penalty:  
-         - GHG Intensity for VLSFO 91.7 gCO2eq/MJ
-         - EU Allowance is fixed @ 70 Euros and 70 % of fuel consumption accounted for year 2025
-         
-         A voyage from Rotterdam to Algeciras on anaverage will become expensive by 20 euros per nautical mile due to penalty on fossil fuel imposed by
-         upcoming FUEL EU regulation.
-         Overall Asia Europe services will attract a surcharge cost of 70 to 80 euros based on the final destination.
+        
          Following metrics are used in the analysis:
-         Consumption (MT): The total amount of fuel consumed by the vessel in metric tons.
-         Sea Distance: The total distance traveled by the vessel in nautical miles.
-         Sea ME Hours: The total number of hours spent at sea.
+         - Consumption (MT): The total amount of fuel consumed by the vessel in metric tons.
+         - Sea Distance: The total distance traveled by the vessel in nautical miles.
+         - Sea ME Hours: The total number of hours spent at sea.
          Emission TTW: The total amount of CO2 emitted by the vessel in tonnes of CO2 per ton of fuel.
          Emission WTW: The total amount of CO2 emitted by the vessel in tonnes of CO2 per ton of fuel, including the emissions from the production of the fuel.
          EU ETS Cost: The cost of the EU ETS allowances for the vessel, calculated as the product of the emission TTW and the cost of an EU ETS allowance.
@@ -41,7 +35,23 @@ with st.expander(" ♻️ Insights"):
          Cost Per Nm: The cost of the EU ETS allowances and the penalty per nautical mile.
          """, unsafe_allow_html=True)
 
+with st.expander(" ♻️ Insights"):
+         st.markdown("""
+         <style>
+         [data-testid="stMarkdownContainer"] ul {
+             padding-left: 40px;
+         }
+         </style>
 
+         Assumptions used to calculate the EU penalty:  
+         - GHG Intensity for VLSFO 91.7 gCO2eq/MJ
+         - EU Allowance is fixed @ 70 Euros and 70 % of fuel consumption accounted for year 2025
+         
+         A voyage from Rotterdam to Algeciras on anaverage will become expensive by 20 euros per nautical mile due to penalty on fossil fuel imposed by
+         upcoming FUEL EU regulation.
+         Overall Asia Europe services will attract a surcharge cost of 70 to 80 euros based on the final destination.
+
+         """, unsafe_allow_html=True)
 
 url = "https://raw.githubusercontent.com/Rigava/DataRepo/main/voyage_data.csv"
 download = requests.get(url).content
